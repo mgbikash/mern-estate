@@ -2,6 +2,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv'
 
+import userRouter from './routes/user.route.js'
+
 dotenv.config();
 
 // Connect to MongoDB
@@ -32,3 +34,14 @@ server.on('error', (err) => {
         process.exit(1);
     }
 });
+
+// app.get('/',(req,res)=>{
+//     res.send("hello world!")
+// })
+
+// app.get('/testt',(req,res)=>{
+//     // res.json("hello json!")
+//     res.json({"testt":"testdata"})
+// })
+
+app.use("/api/user",userRouter)
